@@ -7,12 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "autoig": "./autoig.js"
+    "ignore": "./ignore.js"
   },
   "author": "Guillem Muñoz",
   "license": "ISC",
   "dependencies": {
     "better-console": "^1.0.1",
+    "get-installed-path": "^4.0.8",
     "prompt-list": "^3.2.0"
   }
 }
