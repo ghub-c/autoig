@@ -9,5 +9,5 @@ const folder = './templates';
 console.info('Welcome to autoignore !');
 
 app.createGitIgnore(gitIgnore);
-const file = app.showOptions(folder);
+app.showOptions(folder, gitIgnore);
 

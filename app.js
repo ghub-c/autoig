@@ -17,7 +17,7 @@ module.exports = {
         });
     },
 
-    showOptions: function(folder){
+    showOptions: function(folder, gitIgnore){
         const files = utils.getFilesObject(folder);
         const list = new List({
             name: 'options',
@@ -25,18 +25,14 @@ module.exports = {
             choices: files
         });
         list.ask(function(answer){
-            return answer;
+            const pathTo = "./templates/" + answer;
+            const to = fs.createWriteStream(gitIgnore, {flags: 'a'});
+            const from = fs.createReadStream(pathTo);
+            to.on('close', function() {});
+            from.pipe(to);
+            const chosen = answer.substring(0, answer.length - 10);
+            console.info("Added " + chosen + " to your .gitignore file");
         });
-    },
-
-    concatenate: function(file){
-        const chosen = file.substring(0, answer.length - 10);
-        console.info("Added " + chosen + " to your .gitignore file");
     }
 };
 
-
-/*
-const to = fs.createWriteStream(filename, {flags: 'a'});
-const from = fs.createWriteStream();
-*/
