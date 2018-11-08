@@ -1,31 +1,42 @@
 const fs = require('fs');
+const console = require('better-console');
+const List = require('prompt-list');
 const utils = require('./utils');
 
-const filename = "./.gitignore";
+module.exports = {
 
-const args = process.argv.slice(2);
-if (utils.isEmptyObject(args)){
-    process.on('exit', function() {
-        return console.log("Please provide which .gitignore file you want to add")
-    })
-} else{
-    const gitig = JSON.stringify(args);
+    createGitIgnore: function(gitIgnore){
+        fs.open(gitIgnore, 'r', function(err){
+            if(err){
+                fs.writeFile(gitIgnore, '', function(err){
+                    if(err){
+                        console.warn(err);
+                    }
+                });
+            }
+        });
+    },
 
-    fs.open(filename, 'r', function(err){
-        if(err){
-            fs.writeFile(filename, '', function(err){
-                if(err){
-                    console.log(err);
-                }
-                console.log(".gitignore was saved!");
-            });
-        } else {
-            console.log(".gitignore already exists in this project")
-        }
-    });
+    showOptions: function(folder){
+        const files = utils.getFilesObject(folder);
+        const list = new List({
+            name: 'options',
+            message: 'What .gitignore you would like to add?',
+            choices: files
+        });
+        list.ask(function(answer){
+            return answer;
+        });
+    },
 
-    const to = fs.createWriteStream(filename, {flags: 'a'});
-    const from = fs.createWriteStream()
-}
+    concatenate: function(file){
+        const chosen = file.substring(0, answer.length - 10);
+        console.info("Added " + chosen + " to your .gitignore file");
+    }
+};
 
 
+/*
+const to = fs.createWriteStream(filename, {flags: 'a'});
+const from = fs.createWriteStream();
+*/

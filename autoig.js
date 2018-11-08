@@ -1,20 +1,13 @@
 #!/usr/bin/env node
 const console = require('better-console');
-const List = require('prompt-list');
-const utils = require('./utils');
+const app = require('./app');
 
 
+const gitIgnore = "./.gitignore";
 const folder = './templates';
-const files = utils.getFilesObject(folder);
 
-const list = new List({
-    name: 'options',
-    message: 'What .gitignore you would like to add?',
-    choices: files
-});
+console.info('Welcome to autoignore !');
 
-list.ask(function(answer){
-    const chosen = answer.substring(0, answer.length - 10);
-    console.info("Added " + chosen + " to your .gitignore file");
-});
+app.createGitIgnore(gitIgnore);
+const file = app.showOptions(folder);
 
