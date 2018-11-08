@@ -1,5 +1,5 @@
 {
-  "name": "autogitignore",
+  "name": "auto-gitignore",
   "version": "1.0.0",
   "description": "Automatic .gitignore generator",
   "main": "app.js",

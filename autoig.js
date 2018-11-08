@@ -4,7 +4,7 @@ const app = require('./app');
 
 
 const gitIgnore = "./.gitignore";
-const folder = './templates';
+const folder = '/usr/lib/node_modules/auto-gitignore/templates';
 
 console.info('Welcome to autoignore !');
 

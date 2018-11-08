@@ -25,7 +25,7 @@ module.exports = {
             choices: files
         });
         list.ask(function(answer){
-            const pathTo = "./templates/" + answer;
+            const pathTo = "/usr/lib/node_modules/auto-gitignore/templates/" + answer;
             const to = fs.createWriteStream(gitIgnore, {flags: 'a'});
             const from = fs.createReadStream(pathTo);
             to.on('close', function() {});
