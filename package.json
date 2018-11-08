@@ -1,0 +1,14 @@
+{
+  "name": "autogitignore",
+  "version": "1.0.0",
+  "description": "Automatic .gitignore generator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "autoig": "./autoig.js"
+  },
+  "author": "Guillem Muñoz",
+  "license": "ISC"
+}
