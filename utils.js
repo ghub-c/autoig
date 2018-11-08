@@ -1,3 +1,4 @@
+const fs = require('fs');
 
 module.exports = {
     isEmptyObject: function (obj) {
@@ -7,5 +8,12 @@ module.exports = {
             }
         }
         return true;
+    },
+    getFilesObject: function (folder) {
+        let files = [];
+        fs.readdirSync(folder).forEach(file => {
+            files.push(file);
+        });
+        return files;
     }
 };

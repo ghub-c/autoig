@@ -10,5 +10,9 @@
     "autoig": "./autoig.js"
   },
   "author": "Guillem Muñoz",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "better-console": "^1.0.1",
+    "prompt-list": "^3.2.0"
+  }
 }
